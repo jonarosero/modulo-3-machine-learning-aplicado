@@ -11,7 +11,8 @@ No existe instalación automática de librerías. Cada notebook inicia con un ú
 ## Orden
 
 1. `01_Dia1_Datos_y_Regresion.ipynb`: NumPy/Pandas/Matplotlib, EDA, regresión simple y múltiple, métricas, Train/Val/Test, categorías, causalidad.
-2. `02_Dia2_Evaluacion_Overfitting_Arboles.ipynb`: Ridge, Lasso, Elastic Net, Decision Tree Regressor, Random Forest Regressor, Gradient Boosting, XGBoost, LightGBM, CatBoost.
+   - `01_1_Dia1_Regularizacion_Ridge_Lasso_ElasticNet.ipynb`: material complementario de regularización.
+2. `02_Dia2_Overfitting_CV_Arboles_Clasificacion_WorldBank_v2.ipynb`: overfitting, validación cruzada, árboles y Random Forest; usa indicadores públicos del Banco Mundial y Bank Marketing.
 3. `03_Dia3_SVM_KNN_Metricas_KMeans.ipynb`: clasificación, Logistic baseline, métricas, KNN, SVM, ROC/PR, transición a K-Means.
 4. `04_Dia4_Clustering_Segmentacion_Economica.ipynb`: K-Means, Elbow, Silhouette, perfiles, clustering jerárquico y estabilidad.
 5. `05_Dia5_PCA_Seleccion_Features.ipynb`: PCA, varianza explicada, loadings, selección, p-values, VIF, feature engineering.
