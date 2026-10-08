@@ -25,6 +25,8 @@ Los datasets `*_fallback.csv` y `*_demo.csv` son **SINTÉTICOS DIDÁCTICOS** sal
 
 `actividad_economica_reto.csv` es un segundo dataset incluido para el reto del Día 1.
 
+`datos/bank_marketing_uci.csv` es el archivo oficial **Bank Marketing (bank-additional-full)** de [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/222/bank+marketing). Contiene 41 188 registros, usa `;` como separador y el notebook del Día 2 lo lee localmente sin descarga.
+
 ## Seguridad
 
 No subir datos institucionales/confidenciales a Kaggle, Colab, OpenML u otros servicios externos.
