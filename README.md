@@ -4,23 +4,23 @@ Material de clase del Diplomado en Big Data e Inteligencia Artificial, preparado
 
 ## Propósito y organización
 
-El módulo oficial suma **25 horas: 20 sincrónicas y 5 autónomas**, en cinco unidades. Este repositorio acompaña la ruta de siete jornadas. Cada notebook de los días 3–7 se puede leer de forma autónoma y sigue el patrón didáctico del Día 1: problema → unidad y fuente de datos → exploración → concepto → código guiado → lectura de resultados → diagnóstico → actividad y preguntas.
+El documento institucional declara **25 horas: 20 sincrónicas y 5 autónomas**, en cinco unidades. La ruta docente acordada comprende **siete jornadas de 3 horas de clase (21 horas)**; por tanto difiere en una hora sincrónica de la declaración institucional. Esta diferencia se registra, sin cambiar aquí la duración aprobada. El plan de ajustes y comprobación está en [`PLAN_AJUSTES_MODULO3.md`](PLAN_AJUSTES_MODULO3.md). El notebook del Día 1 permanece intacto. Los días 2–7 pueden leerse desde conocimientos casi iniciales y siguen el patrón: problema → intuición → ejemplo pequeño → datos → código comentado → lectura de resultados → límites → ejercicio.
 
-Los notebooks estiman el tiempo para la sesión en sus portadas; el contenido central se prioriza para las horas disponibles y las actividades adicionales quedan como práctica autónoma. No es necesario ejecutar todos los experimentos durante la sesión para cubrir los resultados de aprendizaje.
+Los notebooks señalan una ruta presencial de tres horas; el resto de explicaciones y experimentos siguen disponibles para el autoestudio. No es necesario ejecutar todas las variantes en vivo para poder comprenderlas y practicarlas después.
 
-Para los días actualizados, la distribución indicada sigue el plan oficial: Día 3 (3 h sincrónicas + 1 autónoma), Día 4 (3 + 1), Día 5 (3 sincrónicas), Día 6 (3 + 1) y Día 7 (2 + 1). Las celdas de ampliación se pueden dejar como lectura o trabajo autónomo.
+Las actividades autónomas institucionales suman cinco horas; su distribución formal debe confirmarse con el instrumento vigente. Las celdas de profundización no sustituyen el recorrido de tres horas de cada jornada.
 
 ## Ruta por jornada y contenidos oficiales
 
 | Día | Notebook | Temas del Módulo 3 |
 |---|---|---|
 | 1 | `notebooks/01_Dia1_Datos_y_Regresion.ipynb` | Regresión lineal y múltiple, exploración, métricas y datos económicos. Referencia pedagógica. |
-| 2 | `notebooks/02_Dia2_Overfitting_CV_Arboles_Clasificacion_WorldBank_v2.ipynb` | Evaluación predictiva, overfitting, validación cruzada, árboles y Random Forest. |
-| 3 | `notebooks/03_Dia3_SVM_KNN_Metricas_KMeans.ipynb` | Clasificación, métricas, KNN y SVM. |
+| 2 | `notebooks/02_Dia2_Evaluacion_Arboles_Regresion.ipynb` | Regresión y evaluación Holdout/K-Fold con indicadores del Banco Mundial; under/overfitting, árbol y Random Forest **de regresión**. |
+| 3 | `notebooks/03_Dia3_Clasificacion_Arboles_RF_KNN_SVM.ipynb` | Clasificación desde cero: desbalance, baseline, árbol/Gini, matriz de confusión, Random Forest, KNN, SVM y comparación común de cuatro enfoques. |
 | 4 | `notebooks/04_Dia4_Clustering_Segmentacion_Economica.ipynb` | K-Means, clustering jerárquico, segmentación económica, patrones e interpretación. |
 | 5 | `notebooks/05_Dia5_PCA_Seleccion_Features.ipynb` | PCA, selección de variables e ingeniería de características. |
 | 6 | `notebooks/06_Dia6_Visualizacion_Optimizacion_y_Reto.ipynb` | Visualización multidimensional, búsqueda de hiperparámetros y diseño del proyecto. |
-| 7 | `notebooks/07_Dia7_Pipelines_Forecasting_Presentacion.ipynb` | Construcción y comparación de modelos, Pipeline, forecasting y presentación final. |
+| 7 | `notebooks/07_Dia7_Pipelines_Forecasting_Presentacion.ipynb` | Pipeline y forecasting móvil de un paso sobre serie sintética; práctica final con notebook y síntesis escrita, **sin exposición oral**. |
 
 El notebook `01_1_Dia1_Regularizacion_Ridge_Lasso_ElasticNet.ipynb` es material complementario.
 
@@ -28,10 +28,11 @@ El notebook `01_1_Dia1_Regularizacion_Ridge_Lasso_ElasticNet.ipynb` es material 
 
 Los notebooks de los días 3–7 leen datasets desde `datos/`. **No descargan datos en ejecución desde APIs, UCI, Kaggle ni OpenML.** Las fuentes originales se atribuyen en `datos/README.md`; las copias se conservan para que todas las personas de clase trabajen con la misma versión.
 
-- `bank_marketing_uci.csv`: dataset público UCI Bank Marketing (41 188 contactos), usado en Días 3 y como práctica de clasificación. Datos de campañas bancarias portuguesas; no representan clientes ecuatorianos ni al BCE.
-- `world_bank_latam_ml.csv`: panel anual de indicadores macroeconómicos de países latinoamericanos, usado en Días 4–6 para segmentación, PCA y optimización. Datos observacionales, sujetos a faltantes, definiciones y revisiones.
+- `bank_marketing_uci.csv`: dataset público UCI Bank Marketing (41 188 contactos), usado en Día 3 para los cuatro clasificadores sobre la misma muestra estratificada. Datos de campañas bancarias portuguesas; no representan clientes ecuatorianos ni al BCE.
+- `world_bank_latam_ml.csv`: panel anual de indicadores macroeconómicos de países latinoamericanos, usado en Día 2 para regresión y Holdout/K-Fold y en Días 4–6 para segmentación, PCA y optimización. Datos observacionales, sujetos a faltantes, definiciones y revisiones.
 - `macro_mensual_demo.csv`: **sintético didáctico**, usado en Día 7 para explicar lags, baselines y división temporal con un ejemplo mensual manejable. No son estadísticas oficiales y no debe citarse como evidencia económica.
 - `actividad_economica_demo.csv` y `actividad_economica_reto.csv`: ejercicios **sintéticos didácticos** existentes, incluido el reto del Día 1.
+- `telco_churn_fallback.csv`: **sintético didáctico** con 4 500 clientes simulados; opción de clasificación del proyecto para practicar categorías, abandono `Yes/No` y matriz de confusión. No son registros de una operadora real.
 
 Los datasets públicos son para práctica metodológica. No se incluyen microdatos institucionales ni información confidencial. No confundas correlación, importancia predictiva o agrupaciones exploratorias con causalidad, segmentos oficiales o recomendaciones de política.
 
@@ -39,18 +40,15 @@ Los datasets públicos son para práctica metodológica. No se incluyen microdat
 
 Usa Python 3.10 o posterior y Jupyter. Instala previamente, si hacen falta, `numpy`, `pandas`, `matplotlib`, `scikit-learn` y `scipy`. No hay instalaciones ni conexiones de datos automáticas dentro de las celdas. Abre el repositorio como carpeta en Jupyter y ejecuta las celdas de cada notebook en orden; las rutas buscan `datos/` desde la raíz o desde `notebooks/`.
 
-Los notebooks originales de los Días 1–2 quedan fuera de esta actualización solicitada. Algunos bloques de esos notebooks ofrecen refrescar indicadores desde la API del Banco Mundial; para una sesión completamente sin conexión, usa los CSV locales existentes y no ejecutes las celdas de actualización en vivo. Los Días 3–7 reescritos trabajan con copias locales.
+Los Días 2–7 usan copias CSV locales, sin consultas a servicios externos durante la ejecución. El Día 1 conserva celdas opcionales de actualización en vivo del Banco Mundial.
 
 ## Evaluación alineada al plan de clase
 
-El plan de clase prevé **60 puntos formativos y 40 sumativos**. Actividades sugeridas para que la evidencia corresponda a los notebooks:
+El esquema es **60 puntos formativos + 40 finales** sobre el **mismo Proyecto Integrador**. La diagnóstica del Día 1 no puntúa; los laboratorios guiados de los Días 2–3 no añaden calificaciones. Las tres tareas guiadas formativas son: **Día 4, Tarea 1 (20):** pregunta, tipo y auditoría inicial del CSV; **Día 5, Tarea 2 (20):** limpieza, tres gráficos, partición y transformación sin fuga; **Día 6, Tarea 3 (20):** referencia, modelos, comparación en Validation y decisión fijada. El **Día 7** se entrega la **práctica final (40)**: comprobación en Test o estabilidad de clustering, notebook integrado y conclusión escrita, **sin exposición oral**. Las rúbricas con niveles y evidencias están en [`INSTRUMENTOS_EVALUACION_MODULO3.md`](INSTRUMENTOS_EVALUACION_MODULO3.md).
 
-1. **Unidades 1–2 (20 puntos):** regresión del Día 1 y comparación de clasificadores de los días 2–3; justificar baseline y métricas.
-2. **Unidad 3 (20 puntos):** perfiles, métodos y límites de la segmentación del Día 4.
-3. **Unidad 4 (20 puntos):** PCA, selección/optimización e interpretación de los días 5–6.
-4. **Unidad 5 (40 puntos):** notebook reproducible y presentación del Día 7, con rúbrica sugerida dentro del notebook.
+Cada actividad tiene su propio Word institucional en la raíz: `Instrumento_01_Diagnostica.docx` (20 preguntas A–D, 0,5 por acierto; bruto /10 que **no** se agrega a la nota), `Instrumento_02_Proyecto_Tarea1.docx`, `Instrumento_03_Proyecto_Tarea2.docx`, `Instrumento_04_Proyecto_Tarea3.docx` y `Instrumento_05_Proyecto_Practica_Final.docx`. Los cuatro primeros usan `Plantilla_Vertical.docx`; el último conserva la portada de `Plantilla_Manual.docx`. El cuestionario Word **no contiene respuestas**; su clave está exclusivamente en el [instrumento Markdown para el instructor](INSTRUMENTOS_EVALUACION_MODULO3.md), que no debe distribuirse al alumnado con la prueba.
 
-Las puntuaciones y criterios finales deben seguir el instrumento institucional vigente.
+En el proyecto, la **primera decisión** es justificar si la pregunta pide regresión (cantidad), clasificación (clase conocida) o clustering (grupos sin etiqueta). Después se documentan unidad de observación, fuente, tipos de columnas, nulos, limpieza y al menos tres visualizaciones; se separa Train/Validation/Test según tiempo, clases o grupos y se aprende cualquier transformación **solo en Train**. Si hay categorías predictoras, se identifican al explorar pero se convierten mediante One-Hot después de la partición, dentro de un Pipeline. Para clustering las particiones permiten estudiar estabilidad y perfiles, sin usar Accuracy de clasificación. El [catálogo de datos](datos/README.md) identifica la procedencia y límites de las cinco opciones.
 
 ## Fuentes y bibliografía
 
