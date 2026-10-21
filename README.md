@@ -17,7 +17,7 @@ Las actividades autónomas institucionales suman cinco horas; su distribución f
 | 1 | `notebooks/01_Dia1_Datos_y_Regresion.ipynb` | Regresión lineal y múltiple, exploración, métricas y datos económicos. Referencia pedagógica. |
 | 2 | `notebooks/02_Dia2_Evaluacion_Arboles_Regresion.ipynb` | Regresión y evaluación Holdout/K-Fold con indicadores del Banco Mundial; under/overfitting, árbol y Random Forest **de regresión**. |
 | 3 | `notebooks/03_Dia3_Clasificacion_Arboles_RF_KNN_SVM.ipynb` | Clasificación desde cero: desbalance, baseline, árbol/Gini, matriz de confusión, Random Forest, KNN, SVM y comparación común de cuatro enfoques. |
-| 4 | `notebooks/04_Dia4_Clustering_Segmentacion_Economica.ipynb` | K-Means, clustering jerárquico, segmentación económica, patrones e interpretación. |
+| 4 | `notebooks/04_Dia4_Clustering_Segmentacion_Economica.ipynb` | Clustering: segmentación de 8 950 clientes de tarjeta de crédito con K-Means y clustering jerárquico (`datos/CC_GENERAL.csv`). |
 | 5 | `notebooks/05_Dia5_PCA_Seleccion_Features.ipynb` | PCA, selección de variables e ingeniería de características. |
 | 6 | `notebooks/06_Dia6_Visualizacion_Optimizacion_y_Reto.ipynb` | Visualización multidimensional, búsqueda de hiperparámetros y diseño del proyecto. |
 | 7 | `notebooks/07_Dia7_Pipelines_Forecasting_Presentacion.ipynb` | Pipeline y forecasting móvil de un paso sobre serie sintética; práctica final con notebook y síntesis escrita, **sin exposición oral**. |
