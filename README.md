@@ -1,63 +1,79 @@
 # Módulo 3 — Machine Learning Aplicado
 
-Material de clase del Diplomado en Big Data e Inteligencia Artificial, preparado para CEC EPN / Banco Central del Ecuador.
+Material de clase del **Diplomado en Big Data e Inteligencia Artificial** (CEC EPN · Banco Central del Ecuador).
 
-## Propósito y organización
+Siete jornadas para aprender Machine Learning **desde cero y con datos económicos y financieros**: regresión, clasificación, clustering, reducción de dimensionalidad, optimización de modelos, automatización y forecasting. Cada tema se explica primero **a mano, con números pequeños**, y después en Python con scikit-learn, paso a paso y con el código comentado.
 
-El documento institucional declara **25 horas: 20 sincrónicas y 5 autónomas**, en cinco unidades. La ruta docente acordada comprende **siete jornadas de 3 horas de clase (21 horas)**; por tanto difiere en una hora sincrónica de la declaración institucional. Esta diferencia se registra, sin cambiar aquí la duración aprobada. El plan de ajustes y comprobación está en [`PLAN_AJUSTES_MODULO3.md`](PLAN_AJUSTES_MODULO3.md). El notebook del Día 1 permanece intacto. Los días 2–7 pueden leerse desde conocimientos casi iniciales y siguen el patrón: problema → intuición → ejemplo pequeño → datos → código comentado → lectura de resultados → límites → ejercicio.
+## Contenido
 
-Los notebooks señalan una ruta presencial de tres horas; el resto de explicaciones y experimentos siguen disponibles para el autoestudio. No es necesario ejecutar todas las variantes en vivo para poder comprenderlas y practicarlas después.
+```
+modulo3_ml/
+├── notebooks/                 notebooks de cada jornada (ejecutados, con resultados)
+├── material_apoyo/
+│   ├── presentaciones/        diapositivas de los días 1 a 7 en PDF
+│   └── *.png                  imágenes de apoyo de los notebooks
+└── datos/                     los 8 datasets que usan los notebooks (ver datos/README.md)
+```
 
-Las actividades autónomas institucionales suman cinco horas; su distribución formal debe confirmarse con el instrumento vigente. Las celdas de profundización no sustituyen el recorrido de tres horas de cada jornada.
+## Ruta por jornada
 
-## Ruta por jornada y contenidos oficiales
+| Día | Notebook | Presentación | Temas | Datos |
+|---|---|---|---|---|
+| 0 | `00_Dia0_Fundamentos_Python_NumPy_Pandas_Matplotlib` · `00_1_Dia0_Puente_a_Scikit_Learn` | — | Python, NumPy, Pandas y Matplotlib desde cero; el patrón `fit` / `predict` y `train_test_split` | Ejemplos en el propio notebook |
+| 1 | `01_Dia1_Datos_y_Regresion` · `01_1_Dia1_Regularizacion_Ridge_Lasso_ElasticNet` | Día 1 | Exploración, limpieza y regresión lineal; regularización Ridge, Lasso y Elastic Net (complementario) | Actividad económica (sintético) |
+| 2 | `02_Dia2_Evaluacion_Arboles_Regresion` | Día 2 | Train / Validation / Test, Holdout y K-Fold, sobreajuste, árbol y Random Forest de regresión | Banco Mundial (LATAM), BankChurners |
+| 3 | `03_Dia3_Clasificacion_Arboles_RF_KNN_SVM` | Día 3 | Clasificación: Gini, matriz de confusión, Precision, Recall y F1, árbol, Random Forest, KNN, SVM, escalado y balanceo | PaySim, BankChurners, Credit Risk |
+| 4 | `04_Dia4_Clustering_Segmentacion_Economica` | Día 4 | Supervisado y no supervisado; K-Means a mano, inercia, Silhouette, clustering jerárquico y dendrograma; asignar clientes nuevos | Clientes de tarjeta (CC GENERAL) |
+| 5 | `05_Dia5_PCA_Seleccion_Features` | Día 5 | PCA a mano, varianza explicada y cargas; selección de variables (filtro, envoltura, embebido); ingeniería de características | CC GENERAL, BankChurners, Credit Risk |
+| 6 | `06_Dia6_Visualizacion_Optimizacion_y_Reto` | Día 6 | Visualización multidimensional (coordenadas paralelas, PCA, t-SNE); validación cruzada, Grid Search y Random Search; elegir k en clustering | CC GENERAL, Credit Risk, BankChurners |
+| 7 | `07_Dia7_Pipelines_Forecasting_Presentacion` | Día 7 | Automatizar con Pipeline y `joblib`; forecasting a un mes con rezagos, líneas base y `TimeSeriesSplit` | Credit Risk, CC GENERAL, serie macro mensual (sintética) |
 
-| Día | Notebook | Temas del Módulo 3 |
-|---|---|---|
-| 1 | `notebooks/01_Dia1_Datos_y_Regresion.ipynb` | Regresión lineal y múltiple, exploración, métricas y datos económicos. Referencia pedagógica. |
-| 2 | `notebooks/02_Dia2_Evaluacion_Arboles_Regresion.ipynb` | Regresión y evaluación Holdout/K-Fold con indicadores del Banco Mundial; under/overfitting, árbol y Random Forest **de regresión**. |
-| 3 | `notebooks/03_Dia3_Clasificacion_Arboles_RF_KNN_SVM.ipynb` | Clasificación desde cero: desbalance, baseline, árbol/Gini, matriz de confusión, Random Forest, KNN, SVM y comparación común de cuatro enfoques. |
-| 4 | `notebooks/04_Dia4_Clustering_Segmentacion_Economica.ipynb` | Clustering: segmentación de 8 950 clientes de tarjeta de crédito con K-Means y clustering jerárquico (`datos/CC_GENERAL.csv`). |
-| 5 | `notebooks/05_Dia5_PCA_Seleccion_Features.ipynb` | PCA, selección de variables e ingeniería de características. |
-| 6 | `notebooks/06_Dia6_Visualizacion_Optimizacion_y_Reto.ipynb` | Visualización multidimensional, búsqueda de hiperparámetros y diseño del proyecto. |
-| 7 | `notebooks/07_Dia7_Pipelines_Forecasting_Presentacion.ipynb` | Pipeline y forecasting móvil de un paso sobre serie sintética; práctica final con notebook y síntesis escrita, **sin exposición oral**. |
+### Cómo está organizado cada notebook (días 3 a 7)
 
-El notebook `01_1_Dia1_Regularizacion_Ridge_Lasso_ElasticNet.ipynb` es material complementario.
+Todos siguen los mismos pasos, para que el procedimiento se vuelva costumbre:
 
-## Datos locales y reproducibilidad
-
-Los notebooks de los días 3–7 leen datasets desde `datos/`. **No descargan datos en ejecución desde APIs, UCI, Kaggle ni OpenML.** Las fuentes originales se atribuyen en `datos/README.md`; las copias se conservan para que todas las personas de clase trabajen con la misma versión.
-
-- `bank_marketing_uci.csv`: dataset público UCI Bank Marketing (41 188 contactos), usado en Día 3 para los cuatro clasificadores sobre la misma muestra estratificada. Datos de campañas bancarias portuguesas; no representan clientes ecuatorianos ni al BCE.
-- `world_bank_latam_ml.csv`: panel anual de indicadores macroeconómicos de países latinoamericanos, usado en Día 2 para regresión y Holdout/K-Fold y en Días 4–6 para segmentación, PCA y optimización. Datos observacionales, sujetos a faltantes, definiciones y revisiones.
-- `macro_mensual_demo.csv`: **sintético didáctico**, usado en Día 7 para explicar lags, baselines y división temporal con un ejemplo mensual manejable. No son estadísticas oficiales y no debe citarse como evidencia económica.
-- `actividad_economica_demo.csv` y `actividad_economica_reto.csv`: ejercicios **sintéticos didácticos** existentes, incluido el reto del Día 1.
-- `telco_churn_fallback.csv`: **sintético didáctico** con 4 500 clientes simulados; opción de clasificación del proyecto para practicar categorías, abandono `Yes/No` y matriz de confusión. No son registros de una operadora real.
-
-Los datasets públicos son para práctica metodológica. No se incluyen microdatos institucionales ni información confidencial. No confundas correlación, importancia predictiva o agrupaciones exploratorias con causalidad, segmentos oficiales o recomendaciones de política.
+1. **Mirar los datos** (`head`, tipos y resumen) y **graficarlos**.
+2. **Limpiar y preparar paso a paso**: faltantes, fugas, logaritmo, escalado, codificación y balanceo, con el antes y el después.
+3. **Línea base**: la regla más simple que un modelo debe superar.
+4. **El método a mano**, con números pequeños.
+5. **Modelo simple con scikit-learn**, en pocas líneas comentadas.
+6. **Métricas a mano y con scikit-learn**, siempre **Train frente a Validation**.
+7. **Hiperparámetros explicados uno por uno** y combinaciones probadas con `for`.
+8. **Resultado final**, con Test una sola vez.
+9. **Comparación final**: todos los modelos en todos los datasets, para ver cómo se escoge el mejor en cada caso.
 
 ## Preparación y ejecución
 
-Usa Python 3.10 o posterior y Jupyter. Instala previamente, si hacen falta, `numpy`, `pandas`, `matplotlib`, `scikit-learn` y `scipy`. No hay instalaciones ni conexiones de datos automáticas dentro de las celdas. Abre el repositorio como carpeta en Jupyter y ejecuta las celdas de cada notebook en orden; las rutas buscan `datos/` desde la raíz o desde `notebooks/`.
+1. Instala **Python 3.10 o posterior** con Jupyter (por ejemplo, con Anaconda).
+2. Si hacen falta, instala: `numpy`, `pandas`, `matplotlib`, `scikit-learn`, `scipy` y `joblib`.
+3. Abre la carpeta `modulo3_ml` en Jupyter y ejecuta cada notebook **en orden, de arriba hacia abajo**. Las rutas encuentran `datos/` tanto desde la raíz como desde `notebooks/`.
 
-Los Días 2–7 usan copias CSV locales, sin consultas a servicios externos durante la ejecución. El Día 1 conserva celdas opcionales de actualización en vivo del Banco Mundial.
+Los notebooks no descargan nada: todos los datos están en `datos/`. Tiempos aproximados de ejecución completa: Día 3 ≈ 5 min, Día 5 ≈ 4 min, Día 6 ≈ 5 min, los demás menos de 1 min. El Día 7 crea la carpeta `notebooks/resultados_dia7` con el modelo guardado y un informe de ejemplo.
 
-## Evaluación alineada al plan de clase
+## Datos
 
-El esquema es **60 puntos formativos + 40 finales** sobre el **mismo Proyecto Integrador**. La diagnóstica del Día 1 no puntúa; los laboratorios guiados de los Días 2–3 no añaden calificaciones. Las tres tareas guiadas formativas son: **Día 4, Tarea 1 (20):** pregunta, tipo y auditoría inicial del CSV; **Día 5, Tarea 2 (20):** limpieza, tres gráficos, partición y transformación sin fuga; **Día 6, Tarea 3 (20):** referencia, modelos, comparación en Validation y decisión fijada. El **Día 7** se entrega la **práctica final (40)**: comprobación en Test o estabilidad de clustering, notebook integrado y conclusión escrita, **sin exposición oral**. Las rúbricas con niveles y evidencias están en [`INSTRUMENTOS_EVALUACION_MODULO3.md`](INSTRUMENTOS_EVALUACION_MODULO3.md).
+| Archivo | Fuente | Se usa en |
+|---|---|---|
+| `actividad_economica_demo.csv`, `actividad_economica_reto.csv` | Sintéticos didácticos | Día 1 |
+| `world_bank_latam_ml.csv` | Banco Mundial, World Development Indicators | Día 2 |
+| `BankChurners.csv` | Kaggle, *Credit Card customers* | Días 2, 3, 5 y 6 |
+| `paysim_muestra.csv` | Kaggle, PaySim (sintético) | Día 3 |
+| `credit_risk_dataset.csv` | Kaggle, *Credit Risk Dataset* | Días 3, 5, 6 y 7 |
+| `CC_GENERAL.csv` | Kaggle, *Credit Card Dataset for Clustering* | Días 4, 5, 6 y 7 |
+| `macro_mensual_demo.csv` | Sintético didáctico | Día 7 |
 
-Cada actividad tiene su propio Word institucional en la raíz: `Instrumento_01_Diagnostica.docx` (20 preguntas A–D, 0,5 por acierto; bruto /10 que **no** se agrega a la nota), `Instrumento_02_Proyecto_Tarea1.docx`, `Instrumento_03_Proyecto_Tarea2.docx`, `Instrumento_04_Proyecto_Tarea3.docx` y `Instrumento_05_Proyecto_Practica_Final.docx`. Los cuatro primeros usan `Plantilla_Vertical.docx`; el último conserva la portada de `Plantilla_Manual.docx`. El cuestionario Word **no contiene respuestas**; su clave está exclusivamente en el [instrumento Markdown para el instructor](INSTRUMENTOS_EVALUACION_MODULO3.md), que no debe distribuirse al alumnado con la prueba.
+Procedencia, columnas y advertencias de cada archivo en [`datos/README.md`](datos/README.md). Ningún dataset describe clientes ni estadísticas del Ecuador o del BCE; los sintéticos sirven solo para practicar el procedimiento.
 
-En el proyecto, la **primera decisión** es justificar si la pregunta pide regresión (cantidad), clasificación (clase conocida) o clustering (grupos sin etiqueta). Después se documentan unidad de observación, fuente, tipos de columnas, nulos, limpieza y al menos tres visualizaciones; se separa Train/Validation/Test según tiempo, clases o grupos y se aprende cualquier transformación **solo en Train**. Si hay categorías predictoras, se identifican al explorar pero se convierten mediante One-Hot después de la partición, dentro de un Pipeline. Para clustering las particiones permiten estudiar estabilidad y perfiles, sin usar Accuracy de clasificación. El [catálogo de datos](datos/README.md) identifica la procedencia y límites de las cinco opciones.
+## Bibliografía
 
-## Fuentes y bibliografía
-
-- UCI Machine Learning Repository, [Bank Marketing](https://archive.ics.uci.edu/dataset/222/bank+marketing). Referencia y condiciones de uso descritas por UCI.
-- World Bank, [World Development Indicators](https://databank.worldbank.org/source/world-development-indicators) y [términos de uso](https://www.worldbank.org/en/about/legal/terms-of-use-for-datasets).
 - James, G. et al. (2023). *An Introduction to Statistical Learning*. <https://www.statlearning.com>
-- Géron, A. (2022). *Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow*. O’Reilly.
-- Hastie, T., Tibshirani, R. & Friedman, J. (2021). *The Elements of Statistical Learning*. <https://hastie.su.domains/ElemStatLearn/>
+- Géron, A. (2022). *Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow*. O'Reilly.
+- Hastie, T., Tibshirani, R. y Friedman, J. (2021). *The Elements of Statistical Learning*. <https://hastie.su.domains/ElemStatLearn/>
+- Hyndman, R. y Athanasopoulos, G. (2021). *Forecasting: Principles and Practice*. <https://otexts.com/fpp3/>
 
-## Seguridad y criterio institucional
+## Uso responsable
 
-No publicar ni enviar datos institucionales o confidenciales a GitHub, Kaggle, Colab, OpenML u otros servicios externos. Para adaptar los ejemplos a una pregunta del BCE, primero valida autorización, licenciamiento, clasificación de información, periodo, definiciones y disponibilidad temporal de cada variable.
+No subas datos institucionales ni confidenciales a GitHub, Kaggle, Colab u otros servicios externos. Una agrupación es exploratoria, una importancia es predictiva y una correlación no prueba causalidad.
+
+---
+Docente: Jonathan Rosero Soto
